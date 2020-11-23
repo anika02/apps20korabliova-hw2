@@ -5,19 +5,19 @@ import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 public class Queue {
     private ImmutableLinkedList queue = new ImmutableLinkedList();
 
-    public Queue(){}
+    public Queue() {    }
 
-    Object peek(){
+    Object peek() {
         return queue.getFirst();
     }
 
-    Object dequeue(){
+    Object dequeue() {
         Object temp = this.peek();
         this.queue = this.queue.removeFirst();
         return temp;
     }
 
-    void enqueue(Object e){
+    void enqueue(Object e) {
         this.queue = this.queue.addLast(e);
     }
 

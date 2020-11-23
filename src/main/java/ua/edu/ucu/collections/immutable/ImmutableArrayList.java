@@ -6,9 +6,9 @@ public final class ImmutableArrayList implements ImmutableList {
     private Object[] array = {};
     private int size = 0;
 
-    public ImmutableArrayList(){}
+    public ImmutableArrayList() {    }
 
-    public ImmutableArrayList(Object[] objs){
+    public ImmutableArrayList(Object[] objs) {
         this.array = new Object[objs.length];
         System.arraycopy(objs, 0, this.array, 0, objs.length);
         this.size = objs.length;

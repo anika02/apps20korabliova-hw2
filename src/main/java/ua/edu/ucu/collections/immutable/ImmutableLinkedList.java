@@ -15,14 +15,13 @@ public final class ImmutableLinkedList implements ImmutableList {
             this.data = data;
             this.next = next;
         }
-
     }
 
-    public ImmutableLinkedList() {}
+    public ImmutableLinkedList() {    }
 
     public ImmutableLinkedList(Object[] objects) {
         this.size = objects.length;
-        if(this.size != 0) {
+        if (this.size != 0) {
             this.head = new Node(objects[0], null);
             Node temp = this.head;
             for (int i = 1; i < this.size; ++i) {
@@ -92,8 +91,9 @@ public final class ImmutableLinkedList implements ImmutableList {
         Object[] newArray = new Object[this.size + c.length];
         System.arraycopy(array, 0, newArray, 0, index);
         System.arraycopy(c, 0, newArray, index, c.length);
-        if(this.size > index) {
-            System.arraycopy(array, index, newArray, index + c.length, this.size - index);
+        if (this.size > index) {
+            System.arraycopy(array, index,
+                    newArray, index + c.length, this.size - index);
         }
         return new ImmutableLinkedList(newArray);
     }
@@ -102,7 +102,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     public Object get(int index) {
         indexError(index, 0);
         Node temp = this.head;
-        for(int i = 0; i < index; ++i) {
+        for (int i = 0; i < index; ++i) {
             temp = temp.next;
         }
         return temp.data;
@@ -131,8 +131,8 @@ public final class ImmutableLinkedList implements ImmutableList {
     public int indexOf(Object e) {
         Node temp = this.head;
         int counter = 0;
-        while(counter < this.size){
-            if(temp.data.equals(e)) {
+        while (counter < this.size) {
+            if (temp.data.equals(e)) {
                 return counter;
             }
             temp = temp.next;
@@ -160,7 +160,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     public Object[] toArray() {
         Object[] objects = new Object[this.size];
         Node temp = this.head;
-        for(int i = 0; i < this.size; ++i){
+        for (int i = 0; i < this.size; ++i) {
             objects[i] = temp.data;
             temp = temp.next;
         }
